@@ -303,24 +303,6 @@ void TextContainer::UpdateScrollRange(bool bHori, int minPos, int maxPos, bool b
         {
             scrollViewer->InvalidateVisual();
         }
-
-        /*suic::ScrollData* scrData = _scrollInfo->GetScrollData();
-
-        if (bHori)
-        {
-            scrData->extent.cx = maxPos - minPos + _textRender->GetPadding().SumLR();
-        }
-        else
-        {
-            scrData->extent.cy = maxPos - minPos + _textRender->GetPadding().SumTB();
-        }
-
-        InvalidateScrollInfo(false);
-
-        if (bRedraw)
-        {
-            scrollViewer->InvalidateVisual();
-        }*/
     }
 }
 
@@ -416,7 +398,8 @@ void TextContainer::InvalidateScrollInfo(bool bRaised)
 
 suic::fSize TextContainer::OnMeasure(const suic::fSize& constraint)
 {
-    _caret->Measure(constraint);
+    //_caret->Measure(constraint);
+    MeasureChild(_caret, constraint);
 
     suic::IScrollInfo* scrInfo = GetScrollInfo();
 

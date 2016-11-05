@@ -363,7 +363,8 @@ bool ToolBarPanel::MeasureGeneratedItems(bool asNeededPass, fSize constraint,
             if ((overflowMode != OverflowMode::Always) && !flag)
             {
                 ToolBar::SetIsOverflowItem(elem, Boolean::False);
-                elem->Measure(constraint);
+                //elem->Measure(constraint);
+                MeasureChild(elem, constraint);
 
                 fSize desiredSize = elem->GetDesiredSize();
 
@@ -426,7 +427,8 @@ bool ToolBarPanel::MeasureGeneratedItems(bool asNeededPass, fSize constraint,
                 if (elem->ReadFlag(CoreFlags::IsMeasureDirty))
                 {
                     ToolBar::SetIsOverflowItem(elem, Boolean::False);
-                    elem->Measure(constraint);
+                    //elem->Measure(constraint);
+                    MeasureChild(elem, constraint);
                 }
 
                 fSize size2 = elem->GetDesiredSize();
@@ -565,7 +567,8 @@ fSize ToolBarOverflowPanel::OnMeasure(const fSize& constraint)
     for (int i = 0; i < count; i++)
     {
         Element* element2 = children->GetAt(i);
-        element2->Measure(constraint);
+        //element2->Measure(constraint);
+        MeasureChild(element2, constraint);
         fSize desiredSize = element2->GetDesiredSize();
 
         if (desiredSize.Width() > _wrapWidth)

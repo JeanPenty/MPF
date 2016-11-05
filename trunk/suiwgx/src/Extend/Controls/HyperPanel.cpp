@@ -222,7 +222,8 @@ void HyperPanel::UpdateTransforms(suic::fSize availableSize)
         pChild = children->GetAt(i);
         if ((pChild != NULL) && (pChild->GetVisibility() == suic::Visibility::Visible))
         {
-            pChild->Measure(availableSize);
+            MeasureChild(pChild, availableSize);
+            //pChild->Measure(availableSize);
             allSize += isHori ? pChild->GetDesiredSize().Width() : pChild->GetDesiredSize().Height();
             num++;
         }
@@ -320,7 +321,8 @@ suic::fSize HyperPanel::OnMeasure(const suic::fSize& availableSize)
 
         if ((pChild != NULL) && (pChild->GetVisibility() == suic::Visibility::Visible))
         {
-            pChild->Measure(availableSize);
+            MeasureChild(pChild, availableSize);
+            //pChild->Measure(availableSize);
             suic::fSize scaledSize = GetScaledSize(pChild);
 
             if (GetOrientation() == suic::Orientation::Horizontal)

@@ -130,6 +130,9 @@ private:
     Element* GetTargetElement();
     void HandleLeftButtonDown(MouseButtonEventArg* e);
 
+    void EnterSelect();
+    void LeaveSelect();
+
 protected:
 
     bool _isSeparator;

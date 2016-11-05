@@ -817,7 +817,8 @@ fSize ToolBarTray::OnMeasure(const fSize& constraint)
                 availableSize.cy = num3;
             }
 
-            bar2->Measure(availableSize);
+            MeasureChild(bar2, availableSize);
+            //bar2->Measure(availableSize);
             num4 = Math::Max(num4, flag ? desiredSize.Height() : desiredSize.Width());
             num5 += flag ? desiredSize.Width() : desiredSize.Height();
             num3 -= flag ? desiredSize.Width() : desiredSize.Height();

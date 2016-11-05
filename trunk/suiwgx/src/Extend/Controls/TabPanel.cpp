@@ -788,7 +788,7 @@ fSize TabPanel::MeasureMulti(fSize constraint)
             if (elem->GetVisibility() != Visibility::Collapsed)
             {
                 _numHeaders++;
-                elem->Measure(constraint);
+                MeasureChild(elem, constraint);
                 fSize desiredSizeWithoutMargin = GetDesiredSizeWithoutMargin(elem);
                 if (size.Width() < desiredSizeWithoutMargin.Width())
                 {
@@ -815,7 +815,8 @@ fSize TabPanel::MeasureMulti(fSize constraint)
 
         _numHeaders++;
 
-        elem->Measure(constraint);
+        MeasureChild(elem, constraint);
+
         fSize size2 = GetDesiredSizeWithoutMargin(elem);
 
         if (_rowHeight < size2.Height())
@@ -878,7 +879,7 @@ fSize TabPanel::MeasureSingle(fSize constraint)
         if (elem->GetVisibility() != Visibility::Collapsed)
         {
             _numHeaders++;
-            elem->Measure(constraint);
+            MeasureChild(elem, constraint);
             fSize desiredSizeWithoutMargin = GetDesiredSizeWithoutMargin(elem);
             switch (tabStripPlacement)
             {

@@ -240,7 +240,8 @@ suic::fSize PlayBox::OnMeasure(const suic::fSize& constraint)
 
             if (child != NULL)
             {
-                child->Measure(constraint);
+                MeasureChild(child, constraint);
+                //child->Measure(constraint);
                 suic::fSize size = child->GetDesiredSize();
                 measureSize.cx = Math::Max(measureSize.cx, size.cx);
                 measureSize.cy = Math::Max(measureSize.cy, size.cy);

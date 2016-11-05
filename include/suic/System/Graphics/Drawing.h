@@ -81,6 +81,8 @@ public:
     virtual void DrawGeometry(Brush* brush, Pen* pen, Geometry* regm) = 0;
     virtual void DrawArc(Brush* brush, Pen* pen, fRect* oval, Float starta, Float sweepa, bool usecenter) = 0;
 
+    virtual void DrawSprite(Bitmap* bmp, int x, int y, Byte alpha) = 0;
+
     virtual void DrawImage(Bitmap* bmp, int x, int y, Byte alpha) = 0;
     virtual void DrawImage(Bitmap* bmp, const Matrix* m, Byte alpha) = 0;
     virtual void DrawImage(Bitmap* bmp, const fRect* rcdc, const fRect* rcimg, Byte alpha) = 0;
