@@ -48,6 +48,7 @@ public:
     virtual void PopOffset() = 0;
 
     virtual fRect GetClipBound() = 0;
+    virtual fRect GetTopClipBound() = 0;
 
     virtual bool ContainsClip(fRect* clip) = 0;
     virtual bool ContainsClip(fRRect* clip) = 0;
