@@ -930,10 +930,8 @@ suic::String ExtensionResNode::GetBindingModeXml(suic::Binding* binding)
 {
     suic::String strXml;
 
-    if (binding->GetBindMode() != suic::BindingMode::TwoWay)
+    switch (binding->GetBindMode())
     {
-        switch (binding->GetBindMode())
-        {
         case suic::BindingMode::OneTime:
             strXml += _U("OneTime");
             break;
@@ -942,10 +940,13 @@ suic::String ExtensionResNode::GetBindingModeXml(suic::Binding* binding)
             strXml += _U("OneWay");
             break;
 
+        case suic::BindingMode::TwoWay:
+            strXml += _U("TwoWay");
+            break;
+
         case suic::BindingMode::OneWayToSource:
             strXml += _U("OneWayToSource");
             break;
-        }
     }
 
     if (!strXml.Empty())
